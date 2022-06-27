@@ -99,6 +99,10 @@ display: none;
 line-height: 1.5;
 }
 
+.number-input {
+  width: 48px;
+}
+
 .float-right {
   float: right;
 }
