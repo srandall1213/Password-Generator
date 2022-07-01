@@ -2,104 +2,89 @@
 var generateBtn = document.querySelector("#generate"); //generate id is in the generate button in HTML
 
 // Write password to the #password input
-function writePassword() {  //what does this mean??? 
-  var password = generatePassword(); //is it correct to write my whole function under generatePassword???
+function writePassword() { 
+  var password = generatePassword(); 
   var passwordText = document.querySelector("#password"); //password id is in the password textbox
 
-  passwordText.value = password; //What does this mean???
+  passwordText.value = password; //What are we getting the value of the box & why is password = to two things
   
-
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword)  //do I add () by writePassword?? what does writePassword do right here??? 
-    
+generateBtn.addEventListener("click", writePassword);
+   
+
 //MY CODE 
-function generatePassword () {
-    var includeLength = parseInt(prompt("Please enter a password length between 8-128 characters."));
-    if (includeLength >= 8 && includeLength <= 128) {
-        var includeUpperCase = confirm("Include uppercase letters?\n(Ok = Yes & Cancel = No)");
-        if (includeUpperCase == true || includeUpperCase == false) {
-            var includeLowerCase = confirm("Include lowercase letters?");
-            if(includeLowerCase == true || includeLowerCase == false) {
-                var includeNumbers = confirm("Include numbers?");
-                if (includeNumbers == true || includeNumbers == false) {
-                    var includeSymbols = confirm("Include symbols?");
-                    if(includeSymbols == true || includeSymbols == false) {  
-                        var youSelected = confirm(
-                            "Please confirm the following selections: \n" + 
-                            "Length: " + includeLength + "\n" +
-                            "Uppercase: " + includeUpperCase + "\n" +
-                            "Lowercase: " + includeLowerCase + "\n" +
-                            "Numbers: " + includeNumbers + "\n" +
-                            "Symbols: " + includeSymbols
-                            );
-                        if(youSelected == true) { //STOPS WORKING RIGHT HERE!!!!!!!!!!!!!!!!
 
-                            //Get Random Function 
-                            var randomFunctions = {
-                                lower: randomLower,
-                                upper: randomUpper,
-                                number: randomNumber,
-                                symbol: randomSymbol,
-                            };
-                        
-                            //Random Functions 
-                            function randomUpper () {
-                                return String.fromCharCode(Math.floor(Math.random () * 26) + 65); //add random number between 1-26 (# letters in alphabet) to 65 which is the beginning of the uppercase letter range in CharCode
-                            }
-                            
-                            function randomLower () {
-                                return String.fromCharCode(Math.floor(Math.random() * 26) + 97); //add random number between 1-26 (# letters in alphabet) to 97 which is the beginning of the lowercase letter range in CharCode
-                            }
-                            
-                            function randomNumber () {
-                                return String.fromCharCode(Math.floor(Math.random () * 10) + 48); //add random number between 0-9 to 48 which is the beginning of the number range in CharCode
-                            }
-                            
-                            function randomSymbol () {
-                                var symbols = '!@#$%^&*';
-                                return symbols[Math.floor(Math.random() * symbols.length)];
-                            }
-                            
-                            
-                            //Acutal Generating
-                            function attemptGenerate(includeUpperCase, includeLowerCase, includeNumbers, includeSymbols, includeLength) { //do I need my variables listed here??
+//THEN LOOP FOR THE LENGTH
+// for (var i = 0; i < length; i+= passwordString)
 
-                                var attemptedPassword = '';
+// //THEN MATH.RANDOM FOR ASSORTMENT OF CHARACTERS
+// function randomPassword () {
+//     return passwordString[Math.floor(Math.random() * length)];
+// }
 
-                                var typesCount = includeUpperCase + includeLowerCase + includeNumbers + includeSymbols; //maybe my variables don't work with typesCount??
+//Validate variables
 
-                                var typesArray = [{includeUpperCase}, {includeLowerCase}, {includeNumbers}, {includeSymbols}].filter //filter out falses
+function generatePassword() {
+var passwordString = ("");
 
-                                (
-                                    item => Object.values(item)[0] //whatever is false is now filtered out of the array
-                                );
+    //Length
+    var length = prompt("Please enter a password length between 8-128 characters.");
+    if (length >= 8 && length <=128) {
+        //NOT SURE WHERE TO STORE THIS
+    } else { 
+        alert("Please enter a password length between 8-128 characters.");
+        return;
+    } 
 
-                                if(typesCount === 0) { //do I set this to 0 or false? this code sends an alert if false is chosen for all criteria
-                                    return alert("Try Again.\nPlease click OK to at least one of the following criteria:\n-Uppercase Letters\n-Lowercase Letters\n-Numbers\n-Symbols");
-                                }
+    //UpperLetters
+    var upper = confirm("Include uppercase letters?\n(Ok = Yes & Cancel = No)")
+    if (upper === true) {
+        var upperLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        upperLetters + passwordString; 
+    }
 
-                                for (var i = 0; i < includeLength; i += typesCount) { //looping over the chosen length with random functions
-                                    typesArray.forEach(type => {
-                                        var functionName = Object.keys(type)[0];
-                                        attemptedPassword += randomFunctions[functionName]();
-                                    });
-                                }
+    //LowerLeters
+    var lower = confirm("Include lowercase letters?")
+    if (lower === true) {
+        var lowerLetters = 'abcdefghijklmnopqrstuvwxyz'
+        lowerLetters + passwordString; 
+    }
 
-                                var finalPassword = attemptedPassword;
-                                return finalPassword; //do I return the password here?
-                            }
-                            attemptGenerate(); //do I call the function here??
+    //Numbers
+    var number = confirm("Include numbers?")
+    if (number === true) {
+        var numberList = '0123456789';
+        numberList + passwordString; 
+    } 
 
-                        } else {
-                            alert("Please re-enter criteria to meet your preferences.");
-                        }
-                    } 
-                } 
-            }    
-        }        
+    //Symbols
+    var symbol = confirm("Include symbols?")
+    if (symbol === true) {
+        var symbolList = '!@#$%^&*()'
+        symbolList + passwordString; 
+    } 
+
+    //Confirm Criteria
+    var confirmCriteria = confirm
+    ("Please confirm the following selections: \n" + 
+    "Length: " + length + "\n" +
+    "Uppercase: " + upper + "\n" +
+    "Lowercase: " + lower + "\n" +
+    "Numbers: " + number + "\n" +
+    "Symbols: " + symbol);
+    if (confirmCriteria === true) {
+        alert(passwordString); // GENERATES PASSWORD HERE!!!!!!
     } else {
-        alert("Please enter a number between 8-128.");
+        alert ("Please re-select criteria to meet your preferences.");
+        return;
+    }
+
+    //All Prompts = FALSE
+    if (upper === false && lower === false && number === false && symbol === false) {
+        alert("Try Again.\nPlease click OK to at least one of the following criteria:\n-Uppercase Letters\n-Lowercase Letters\n-Numbers\n-Symbols");
     }
 }
+
+

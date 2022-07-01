@@ -1,7 +1,5 @@
 # Password-Generator
 **Description
-//GENERATE RANDOM FUNCTIONS - http://www.net-comber.com/charset.html
--youtube video https://www.youtube.com/watch?v=iKo9pDKKHnc
 **Screenshot
 **Link to deployed app
 
