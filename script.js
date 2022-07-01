@@ -83,7 +83,7 @@ function generatePassword() {
         return;
     }
 
-    //Confirm Criteria & GENERATE
+    //Confirm Criteria
     var confirmPrompt = prompt("Please enter Y to confirm the following selections: \n" + 
         "Length: " + length + "\n" +
         "Uppercase: " + upperPrompt + "\n" +
@@ -91,22 +91,18 @@ function generatePassword() {
         "Numbers: " + numberPrompt + "\n" +
         "Symbols: " + symbolPrompt);
     if (confirmPrompt === "Y") {
-        console.log(passwordString); // GENERATE PASSWORD HERE
-        console.log(getrandom());
+        console.log(passwordString); 
     } else {
         alert ("Please re-select criteria to meet your preferences.");
         return;
     }  
 
-    function getrandom() {
-        return passwordString[Math.floor(Math.random() * passwordString.length)];
-    } 
-
-    
-
+    //Generates Password
+    var passwordLength = "";
+    for (var i = 0; i < length; i++) {
+        passwordLength += passwordString[Math.floor(Math.random() * passwordString.length)];
+    }
+    return passwordLength;
 }
-
-// for (var i = 0; i < length; i+= passwordString.length);
-
 
 
