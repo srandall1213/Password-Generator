@@ -16,6 +16,7 @@ generateBtn.addEventListener("click", writePassword);
 
 //MY CODE 
 
+
 //THEN LOOP FOR THE LENGTH
 // for (var i = 0; i < length; i+= passwordString)
 
@@ -27,47 +28,61 @@ generateBtn.addEventListener("click", writePassword);
 //Validate variables
 
 function generatePassword() {
-var passwordString = ("");
+
+    var passwordString = ""; //HOW DO I ACCESS THIS
+
 
     //Length
     var length = prompt("Please enter a password length between 8-128 characters.");
     if (length >= 8 && length <=128) {
-        //NOT SURE WHERE TO STORE THIS
+        //NOT SURE WHAT TO PUT HERE OR WHERE TO STORE THIS VALUE
     } else { 
         alert("Please enter a password length between 8-128 characters.");
         return;
     } 
 
     //UpperLetters
-    var upper = confirm("Include uppercase letters?\n(Ok = Yes & Cancel = No)")
-    if (upper === true) {
+    var upperPrompt = prompt("Include uppercase letters? Y or N")
+    if (upperPrompt === "Y" || upperPrompt === "N") {
         var upperLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        upperLetters + passwordString; 
+        passwordString = upperLetters + passwordString;
+    } else {
+        alert("Please enter Y or N.")
+        return;
     }
 
     //LowerLeters
-    var lower = confirm("Include lowercase letters?")
-    if (lower === true) {
-        var lowerLetters = 'abcdefghijklmnopqrstuvwxyz'
-        lowerLetters + passwordString; 
+    var lowerPrompt = prompt("Include lowercase letters?")
+    if (lowerPrompt === "Y" || lowerPrompt === "N") {
+        var lowerLetters = 'abcdefghijklmnopqrstuvwxyz';
+        passwordString = lowerLetters + passwordString;
+    } else {
+        alert("Please enter Y or N.")
+        return;
     }
 
     //Numbers
-    var number = confirm("Include numbers?")
-    if (number === true) {
+    var numberPrompt = prompt("Include numbers? Y or N")
+    if (numberPrompt === "Y" || numberPrompt === "N") {
         var numberList = '0123456789';
-        numberList + passwordString; 
-    } 
+        passwordString = numberList + passwordString;
+    } else {
+        alert("Please enter Y or N.")
+        return;
+    }
 
     //Symbols
-    var symbol = confirm("Include symbols?")
-    if (symbol === true) {
-        var symbolList = '!@#$%^&*()'
-        symbolList + passwordString; 
-    } 
+    var symbolPrompt = prompt("Include symbols? Y or N")
+    if (symbolPrompt === "Y" || symbolPrompt === "N") {
+        var symbolList = '!@#$%^&*()';
+        passwordString = symbolList + passwordString; 
+    } else {
+        alert("Please enter Y or N.")
+        return;
+    }
 
     //Confirm Criteria
-    var confirmCriteria = confirm
+    var confirmPrompt = confirm
     ("Please confirm the following selections: \n" + 
     "Length: " + length + "\n" +
     "Uppercase: " + upper + "\n" +
@@ -75,7 +90,7 @@ var passwordString = ("");
     "Numbers: " + number + "\n" +
     "Symbols: " + symbol);
     if (confirmCriteria === true) {
-        alert(passwordString); // GENERATES PASSWORD HERE!!!!!!
+        alert(passwordString); // GENERATE PASSWORD HERE
     } else {
         alert ("Please re-select criteria to meet your preferences.");
         return;
@@ -86,5 +101,8 @@ var passwordString = ("");
         alert("Try Again.\nPlease click OK to at least one of the following criteria:\n-Uppercase Letters\n-Lowercase Letters\n-Numbers\n-Symbols");
     }
 }
+
+
+
 
 
