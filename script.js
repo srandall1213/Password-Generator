@@ -29,7 +29,7 @@ generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
 
-    var passwordString = ""; //HOW DO I ACCESS THIS
+    var passwordString = ""; //HOW DO I SEE THIS ALL CONCATENATED NOW??
 
 
     //Length
@@ -42,7 +42,7 @@ function generatePassword() {
     } 
 
     //UpperLetters
-    var upperPrompt = prompt("Include uppercase letters? Y or N")
+    var upperPrompt = prompt("Include uppercase letters? Y or N");
     if (upperPrompt === "Y" || upperPrompt === "N") {
         var upperLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         passwordString = upperLetters + passwordString;
@@ -52,7 +52,7 @@ function generatePassword() {
     }
 
     //LowerLeters
-    var lowerPrompt = prompt("Include lowercase letters?")
+    var lowerPrompt = prompt("Include lowercase letters?");
     if (lowerPrompt === "Y" || lowerPrompt === "N") {
         var lowerLetters = 'abcdefghijklmnopqrstuvwxyz';
         passwordString = lowerLetters + passwordString;
@@ -62,7 +62,7 @@ function generatePassword() {
     }
 
     //Numbers
-    var numberPrompt = prompt("Include numbers? Y or N")
+    var numberPrompt = prompt("Include numbers? Y or N");
     if (numberPrompt === "Y" || numberPrompt === "N") {
         var numberList = '0123456789';
         passwordString = numberList + passwordString;
@@ -72,7 +72,7 @@ function generatePassword() {
     }
 
     //Symbols
-    var symbolPrompt = prompt("Include symbols? Y or N")
+    var symbolPrompt = prompt("Include symbols? Y or N");
     if (symbolPrompt === "Y" || symbolPrompt === "N") {
         var symbolList = '!@#$%^&*()';
         passwordString = symbolList + passwordString; 
@@ -81,25 +81,27 @@ function generatePassword() {
         return;
     }
 
+    //All Prompts = FALSE
+    if (upperPrompt === "N" && lowerPrompt === "N" && numberPrompt === "N" && symbolPrompt === "N") {
+        alert("Try Again.\nPlease click OK to at least one of the following criteria:\n-Uppercase Letters\n-Lowercase Letters\n-Numbers\n-Symbols");
+        return;
+    }
+
     //Confirm Criteria
-    var confirmPrompt = confirm
-    ("Please confirm the following selections: \n" + 
-    "Length: " + length + "\n" +
-    "Uppercase: " + upper + "\n" +
-    "Lowercase: " + lower + "\n" +
-    "Numbers: " + number + "\n" +
-    "Symbols: " + symbol);
-    if (confirmCriteria === true) {
-        alert(passwordString); // GENERATE PASSWORD HERE
+    var confirmPrompt = prompt("Please enter Y to confirm the following selections: \n" + 
+        "Length: " + length + "\n" +
+        "Uppercase: " + upperPrompt + "\n" +
+        "Lowercase: " + lowerPrompt + "\n" +
+        "Numbers: " + numberPrompt + "\n" +
+        "Symbols: " + symbolPrompt);
+    if (confirmPrompt === "Y") {
+        alert("generate password now"); // GENERATE PASSWORD HERE
     } else {
         alert ("Please re-select criteria to meet your preferences.");
         return;
     }
 
-    //All Prompts = FALSE
-    if (upper === false && lower === false && number === false && symbol === false) {
-        alert("Try Again.\nPlease click OK to at least one of the following criteria:\n-Uppercase Letters\n-Lowercase Letters\n-Numbers\n-Symbols");
-    }
+    
 }
 
 
