@@ -1,12 +1,12 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate"); //generate id is in the generate button in HTML
+var generateBtn = document.querySelector("#generate"); 
 
 // Write password to the #password input
 function writePassword() { 
   var password = generatePassword(); 
-  var passwordText = document.querySelector("#password"); //password id is in the password textbox
+  var passwordText = document.querySelector("#password"); 
 
-  passwordText.value = password; //What are we getting the value of the box & why is password = to two things
+  passwordText.value = password; 
   
 }
 
@@ -16,26 +16,14 @@ generateBtn.addEventListener("click", writePassword);
 
 //MY CODE 
 
-
-//THEN LOOP FOR THE LENGTH
-// for (var i = 0; i < length; i+= passwordString)
-
-// //THEN MATH.RANDOM FOR ASSORTMENT OF CHARACTERS
-// function randomPassword () {
-//     return passwordString[Math.floor(Math.random() * length)];
-// }
-
-//Validate variables
-
 function generatePassword() {
 
-    var passwordString = ""; //HOW DO I SEE THIS ALL CONCATENATED NOW??
-
+    var passwordString = "";
 
     //Length
-    var length = prompt("Please enter a password length between 8-128 characters.");
-    if (length >= 8 && length <=128) {
-        //NOT SURE WHAT TO PUT HERE OR WHERE TO STORE THIS VALUE
+    var lengthPrompt = prompt("Please enter a password length between 8-128 characters.");
+    if (lengthPrompt >= 8 && lengthPrompt <=128) {
+        var length = lengthPrompt;
     } else { 
         alert("Please enter a password length between 8-128 characters.");
         return;
@@ -43,9 +31,11 @@ function generatePassword() {
 
     //UpperLetters
     var upperPrompt = prompt("Include uppercase letters? Y or N");
-    if (upperPrompt === "Y" || upperPrompt === "N") {
+    if (upperPrompt === "Y") {
         var upperLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         passwordString = upperLetters + passwordString;
+    } else if (upperPrompt === "N") {
+        
     } else {
         alert("Please enter Y or N.")
         return;
@@ -53,9 +43,11 @@ function generatePassword() {
 
     //LowerLeters
     var lowerPrompt = prompt("Include lowercase letters?");
-    if (lowerPrompt === "Y" || lowerPrompt === "N") {
+    if (lowerPrompt === "Y") {
         var lowerLetters = 'abcdefghijklmnopqrstuvwxyz';
         passwordString = lowerLetters + passwordString;
+    } else if (lowerPrompt === "N") {
+        
     } else {
         alert("Please enter Y or N.")
         return;
@@ -63,9 +55,11 @@ function generatePassword() {
 
     //Numbers
     var numberPrompt = prompt("Include numbers? Y or N");
-    if (numberPrompt === "Y" || numberPrompt === "N") {
+    if (numberPrompt === "Y") {
         var numberList = '0123456789';
         passwordString = numberList + passwordString;
+    } else if (numberPrompt === "N") {
+        
     } else {
         alert("Please enter Y or N.")
         return;
@@ -73,9 +67,11 @@ function generatePassword() {
 
     //Symbols
     var symbolPrompt = prompt("Include symbols? Y or N");
-    if (symbolPrompt === "Y" || symbolPrompt === "N") {
+    if (symbolPrompt === "Y") {
         var symbolList = '!@#$%^&*()';
         passwordString = symbolList + passwordString; 
+    } else if (symbolPrompt === "N") {
+        
     } else {
         alert("Please enter Y or N.")
         return;
@@ -87,7 +83,7 @@ function generatePassword() {
         return;
     }
 
-    //Confirm Criteria
+    //Confirm Criteria & GENERATE
     var confirmPrompt = prompt("Please enter Y to confirm the following selections: \n" + 
         "Length: " + length + "\n" +
         "Uppercase: " + upperPrompt + "\n" +
@@ -95,16 +91,22 @@ function generatePassword() {
         "Numbers: " + numberPrompt + "\n" +
         "Symbols: " + symbolPrompt);
     if (confirmPrompt === "Y") {
-        alert("generate password now"); // GENERATE PASSWORD HERE
+        console.log(passwordString); // GENERATE PASSWORD HERE
+        console.log(getrandom());
     } else {
         alert ("Please re-select criteria to meet your preferences.");
         return;
-    }
+    }  
+
+    function getrandom() {
+        return passwordString[Math.floor(Math.random() * passwordString.length)];
+    } 
 
     
+
 }
 
-
+// for (var i = 0; i < length; i+= passwordString.length);
 
 
 
