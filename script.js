@@ -68,7 +68,7 @@ function generatePassword() {
     //Symbols
     var symbolPrompt = prompt("Include symbols? Y or N");
     if (symbolPrompt === "Y") {
-        var symbolList = '!@#$%^&*()';
+        var symbolList = '!@#$%^&*()_+=';
         passwordString = symbolList + passwordString; 
     } else if (symbolPrompt === "N") {
         

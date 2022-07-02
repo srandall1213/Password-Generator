@@ -1,24 +1,20 @@
 # Password-Generator
-**Description
-**Screenshot
-**Link to deployed app
 
+## Description
 
+*My motivation in completing this project was to be able to apply all the concepts I had learned in class to a real world random password generator application. 
 
+*I built this project because I wanted to test my skills and see how my stategy would work out in practice. 
 
-INSTRUCTIONS:
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
+*The problem solved while working on this project was making the code decide on a random assortment of a given length. 
+
+*Through this project I learned a lot about how to decide on a strategy and to think simply. 
+
+*I faced challenges with finding a strategy that I could work through start to finish. I had several rough drafts and tests. Eventually, I took a hint from the instructor during class & the TA, Jake. With a more simple strategy, my code was much more straight forward and clean. I faced a challenge with placement for my conditional variables to concatenate if true in an empty string. I also faced a challenge with how my for loop should look with my math.random function. AskBCS helped me out a lot. 
+
+## Website Appearance
+
+![Password-Generator Screenshot](PGscreenshot.png)
+
+## Link to Deployed Application:
+https://srandall1213.github.io/Password-Generator/
