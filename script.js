@@ -97,7 +97,7 @@ function generatePassword() {
         return;
     }  
 
-    //Generates Password
+    //Generates Length with Random Selection of Given Criteria
     var passwordLength = "";
     for (var i = 0; i < length; i++) {
         passwordLength += passwordString[Math.floor(Math.random() * passwordString.length)];
