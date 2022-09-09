@@ -42,7 +42,7 @@ function generatePassword() {
     }
 
     //LowerLetters
-    var lowerPrompt = prompt("Include lowercase letters?");
+    var lowerPrompt = prompt("Include lowercase letters? Y or N");
     if (lowerPrompt === "Y") {
         var lowerLetters = 'abcdefghijklmnopqrstuvwxyz';
         passwordString = lowerLetters + passwordString;
